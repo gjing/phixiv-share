@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Phixiv Share
 // @namespace    https://github.com/gjing/phixiv-share
-// @version      1.1
+// @version      1.1.1
 // @description  Add Phixiv Share button to pixiv
 // @author       gjing
 // @match        https://www.pixiv.net/*
@@ -16,10 +16,11 @@
   let url = location.href;
   document.body.addEventListener('click', ()=>{
     requestAnimationFrame(()=>{
-      url!==location.href;
-      url = location.href;
-    	const element = document.getElementsByClassName("sc-181ts2x-0")[0].remove();
-      wait_icon();
+      if (url!==location.href) {
+        url = location.href;
+        const element = document.getElementsByClassName("sc-181ts2x-0")[0].remove();
+      	wait_icon();
+      }
     });
   }, true);
 	
